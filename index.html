@@ -3,210 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме - Миронов Данил</title>
+    <title>Резюме Миронова Данила</title>
     <style>
-        * {
+        /* Основные стили для страницы */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9f9fb;
+            color: #333;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            line-height: 1.6;
         }
 
-        body {
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-
+        /* Контейнер */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 850px;
+            margin: 30px auto;
             background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            animation: slideIn 1.5s ease-out;
         }
 
-        h1 {
+        /* Шапка */
+        header {
+            background-color: #0078d4;
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            margin-bottom: 20px;
-            color: #009688;
-            font-size: 32px;
-            text-transform: uppercase;
+            border-radius: 12px 12px 0 0;
         }
 
-        .header-info {
-            text-align: center;
-            margin-bottom: 40px;
+        header h1 {
+            font-size: 40px;
+            margin: 0;
+            font-weight: 600;
         }
 
-        .header-info p {
-            margin-bottom: 10px;
-            font-size: 18px;
-            color: #666;
+        header p {
+            font-size: 20px;
+            margin: 5px 0 0;
+            font-style: italic;
+            color: #e1e1e1;
         }
 
-        .resume-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
-
-        .left-col, .right-col {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
+        /* Общие стили для секций */
+        .main-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .section {
-            margin-bottom: 30px;
+            margin: 20px 0;
         }
 
-        h2 {
-            color: #009688;
-            margin-bottom: 10px;
+        .section h2 {
+            margin-bottom: 15px;
+            color: #0078d4;
             font-size: 24px;
-            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 2px solid #f9f9fb;
+            padding-bottom: 10px;
         }
 
-        p {
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 10px;
+        /* Стили для текста */
+        p, ul {
+            margin: 0 0 15px;
+            font-size: 18px;
         }
 
         ul {
-            list-style-type: none;
-        }
-
-        li {
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        .progress-bar {
-            width: 100%;
-            background-color: #e0e0e0;
-            height: 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        .progress {
-            background-color: #009688;
-            height: 100%;
-            width: 85%;
-            border-radius: 4px;
-            animation: load 1.5s ease-out;
-        }
-
-        .right-col ul li {
             padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
             position: relative;
         }
 
-        .right-col ul li::before {
+        ul li::before {
             content: '•';
+            color: #0078d4;
+            font-weight: bold;
             position: absolute;
-            left: 0;
-            color: #009688;
+            left: -20px;
         }
 
-        @keyframes load {
-            from {
-                width: 0;
+        /* Стили для контактной информации */
+        .contact-info {
+            width: 30%;
+            background-color: #f5f5f7;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .contact-info h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #0078d4;
+        }
+
+        .contact-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .contact-info ul li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .contact-info ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info ul li a:hover {
+            color: #0078d4;
+        }
+
+        /* Основной контент */
+        .content {
+            width: 65%;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0078d4;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 0 12px 12px;
+        }
+
+        /* Hover и анимации */
+        a {
+            text-decoration: none;
+            color: #0078d4;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056a3;
+        }
+
+        /* Прогресс-бар для отображения навыков */
+        .progress-bar {
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            position: relative;
+            margin: 10px 0;
+            height: 8px;
+            width: 100%;
+        }
+
+        .progress-bar div {
+            background-color: #0078d4;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .contact-info, .content {
+                width: 100%;
+                margin: 0;
             }
-            to {
-                width: 85%;
+
+            .main-section {
+                flex-direction: column;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 18px;
             }
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Миронов Данил</h1>
-        <div class="header-info">
+        <header>
+            <h1>Миронов Данил</h1>
             <p>Python-разработчик</p>
-            <p>Минеральные Воды | Возраст: 22 года</p>
-        </div>
-        
-        <div class="resume-grid">
-            <!-- Левая колонка -->
-            <div class="left-col">
+        </header>
+
+        <div class="main-section">
+            <!-- Блок с контактной информацией -->
+            <div class="contact-info section">
+                <h2>Контакты</h2>
+                <ul>
+                    <li>📍 Минеральные Воды</li>
+                    <li>📧 <a href="mailto:danilmironov3101@gmail.com">danilmironov3101@gmail.com</a></li>
+                    <li>📱 +7 924 420-46-83</li>
+                    <li>💻 <a href="https://github.com/WolArt13">GitHub</a></li>
+                    <li>💬 <a href="https://t.me/Wolart13">Telegram</a></li>
+                </ul>
+            </div>
+
+            <!-- Основной контент -->
+            <div class="content">
+                <!-- О себе -->
+                <div class="section">
+                    <h2>О себе</h2>
+                    <p>Python-разработчик с опытом работы над проектами по созданию ботов и телеграмм-интеграций. Имею опыт в разработке API и баз данных. Постоянно совершенствую навыки, работаю над несколькими личными проектами и стремлюсь к чистому и безопасному коду.</p>
+                </div>
+
+                <!-- Образование -->
+                <div class="section">
+                    <h2>Образование</h2>
+                    <ul>
+                        <li>ЧПОУ «ТИТ», Компьютерные системы и комплексы, 2021</li>
+                        <li>ООО «Нетология», курс Python-разработки, 2025</li>
+                    </ul>
+                </div>
+
+                <!-- Навыки -->
                 <div class="section">
                     <h2>Навыки</h2>
                     <ul>
-                        <li>Python</li>
-                        <li>PEP 8</li>
-                        <li>Работа с БД: SQL, PostgreSQL, SQLAlchemy, ORM</li>
-                        <li>Работа с HTTP API</li>
-                        <li>Знание библиотеки requests</li>
-                        <li>GIT, GitHub</li>
-                        <li>Юнит-тестирование</li>
-                        <li>Парсинг сайтов</li>
-                        <li>Написание телеграмм-ботов</li>
-                        <li>Работа с JSON</li>
+                        <li>Python — опыт разработки телеграмм-ботов, игр на PyGame и API-интеграций</li>
+                        <li>SQL, PostgreSQL — написание сложных запросов для обработки данных, работа с ORM (SQLAlchemy)</li>
+                        <li>Unit-тестирование — написание тестов для приложений с использованием Pytest</li>
+                        <li>Парсинг сайтов — BeautifulSoup и requests для автоматизации сбора данных</li>
                     </ul>
                 </div>
 
+                <!-- Качества -->
                 <div class="section">
                     <h2>Качества</h2>
                     <ul>
-                        <li>Внимательность</li>
                         <li>Ответственность</li>
-                        <li>Коммуникабельность</li>
+                        <li>Внимательность</li>
                         <li>Обучаемость</li>
-                        <li>Аналитическое и творческое мышление</li>
-                        <li>Умение работать в команде</li>
-                        <li>Стремление повышать свои навыки</li>
-                        <li>Любовь к саморазвитию</li>
-                        <li>Умение открывать что-то новое</li>
+                        <li>Командная работа</li>
                     </ul>
                 </div>
             </div>
-
-            <!-- Правая колонка -->
-            <div class="right-col">
-                <div class="section">
-                    <h2>Образование</h2>
-                    <p>2021 — Среднее спец.: ЧПОУ "ТИТ", Компьютерные системы и комплексы</p>
-                </div>
-
-                <div class="section">
-                    <h2>Курсы</h2>
-                    <p>2025 — ООО "Нетология", Python-разработчик: расширенный курс</p>
-                </div>
-
-                <div class="section">
-                    <h2>О себе</h2>
-                    <p>Python-программист без опыта работы. Специализируюсь на работе с готовыми API. Владею PostgreSQL и умею взаимодействовать с ней с помощью SQLAlchemy. Имею опыт в написании телеграмм-ботов. Стремлюсь к написанию чистого, оптимизированного и безопасного кода. Постоянно учусь новому и эффективно сотрудничаю с командой.</p>
-                </div>
-
-                <div class="section">
-                    <h2>Хобби</h2>
-                    <p>Написание песен. Игра на гитаре. Изучение английского языка. Создание своих игр на PyGame для развития творческого потенциала и навыков ООП.</p>
-                </div>
-
-                <div class="section">
-                    <h2>Контакты</h2>
-                    <p>+7 924 420-46-83</p>
-                    <p>danilmironov3101@gmail.com</p>
-                    <p><a href="https://github.com/WolArt13" target="_blank">github.com/WolArt13</a></p>
-                    <p><a href="https://t.me/Wolart13" target="_blank">t.me/Wolart13</a></p>
-                </div>
-            </div>
         </div>
+
+        <footer>
+            <p>Резюме Миронова Данила © 2024</p>
+        </footer>
     </div>
+    
 </body>
 </html>
